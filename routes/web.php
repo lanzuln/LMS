@@ -32,5 +32,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/admin/dashboard', [AdminController::class, 'index']);
-Route::get('/instructor/dashboard', [InstructorController::class, 'index']);
+
+Route::middleware(['auth', 'roles:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index']);
+});
+
+Route::middleware(['auth', 'roles:instructor'])->group(function () {
+    Route::get('/instructor/dashboard', [InstructorController::class, 'index']);
+});
