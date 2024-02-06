@@ -37,11 +37,13 @@
         <!--end sidebar wrapper -->
 
         <!--start header -->
-        @include('backend.admin.components.header')
+    @include('backend.admin.components.header')
         <!--end header -->
 
         <!--start page wrapper -->
-        @yield('body')
+        <div class="page-wrapper">
+            @yield('body')
+        </div>
         <!--end page wrapper -->
         <!--start overlay-->
         <div class="overlay toggle-icon"></div>
