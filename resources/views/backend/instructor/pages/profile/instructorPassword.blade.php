@@ -1,4 +1,4 @@
-@extends('backend.admin.layout.master')
+@extends('backend.instructor.layout.master')
 @section('body')
     <div class="page-content">
         <!--breadcrumb-->
@@ -51,73 +51,49 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form action="{{route('admin.profile.update')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('instructor.password.change')}}" method="post">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Full Name</h6>
+                                            <h6 class="mb-0">Old Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" class="form-control" name="name"
-                                                value="{{ $profileData->name }}">
+                                            <input type="password" class="form-control @error('old_password') is-invalid
+
+                                            @enderror" name="old_password">
+
+                                            @error('old_password')
+                                                <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">User Name</h6>
+                                            <h6 class="mb-0">New Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" class="form-control" name="username"
-                                                value="{{ $profileData->username }}">
+                                            <input type="password" class="form-control @error('new_password') is-invalid
+
+                                            @enderror" name="new_password">
+
+                                            @error('new_password')
+                                                <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Email</h6>
+                                            <h6 class="mb-0">Confirm Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" disabled class="form-control" name="email"
-                                                value="{{ $profileData->email }}">
+                                            <input type="password" class="form-control" name="new_password_confirmation">
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Phone</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="text" class="form-control" name="phone"
-                                                value="{{ $profileData->phone ?? 'Enter your phone' }}">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Address</h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input type="text" class="form-control" name="address"
-                                                value="{{ $profileData->address ?? 'Enter address' }}">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">Profile Image </h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <input oninput="newImg.src=window.URL.createObjectURL(this.files[0])"
-                                                class="form-control" name="photo" type="file" id="photo">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <div class="col-sm-3">
-                                            <h6 class="mb-0">  </h6>
-                                        </div>
-                                        <div class="col-sm-9 text-secondary">
-                                            <img class="w-15 preview_profile" style="max-width:150px" id="newImg" src="{{asset($profileData->photo ?? 'no_image.png') }}" alt="profile">
-                                        </div>
-                                    </div>
+
+
                                     <div class="row">
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-9 text-secondary">

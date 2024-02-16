@@ -1,4 +1,4 @@
-@extends('backend.admin.layout.master')
+@extends('backend.instructor.layout.master')
 @section('body')
     <div class="page-content">
         <!--breadcrumb-->
@@ -51,7 +51,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form action="{{route('admin.profile.update')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('instructor.profile.update')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row mb-3">
@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="col-sm-9 text-secondary">
                                             <input type="text" class="form-control" name="phone"
-                                                value="{{ $profileData->phone ?? 'Enter your phone' }}">
+                                                value="{{ $profileData->phone ?? '' }}" placeholder="Enter phone">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
