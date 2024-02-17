@@ -41,7 +41,8 @@
                     <div class="card-body">
                         <h3 class="card-title text-center fs-24 lh-35 pb-4">Login to Your Account!</h3>
                         <div class="section-block"></div>
-                        <form method="post" class="pt-4">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
                             <div class="d-flex flex-wrap align-items-center pb-4">
                                 <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-google mr-2"></i>Google</button>
                                 <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-facebook mr-2"></i>Facebook</button>
@@ -51,9 +52,9 @@
                                 <div class="icon-element icon-element-md fs-25 shadow-sm">Or</div>
                             </div>
                             <div class="input-box">
-                                <label class="label-text">Email or Username</label>
+                                <label class="label-text">Email</label>
                                 <div class="form-group">
-                                    <input class="form-control form--control" type="text" name="name" placeholder="Email or Username">
+                                    <input class="form-control form--control" type="text" name="email" id="email" value="{{old('email')}}" placeholder="Email or Username">
                                     <span class="la la-user input-icon"></span>
                                 </div>
                             </div><!-- end input-box -->
@@ -73,7 +74,7 @@
                             <div class="btn-box">
                                 <div class="d-flex align-items-center justify-content-between pb-4">
                                     <div class="custom-control custom-checkbox fs-15">
-                                        <input type="checkbox" class="custom-control-input" id="rememberMeCheckbox" required>
+                                        <input type="checkbox" class="custom-control-input" id="rememberMeCheckbox" >
                                         <label class="custom-control-label custom--control-label" for="rememberMeCheckbox">Remember Me</label>
                                     </div><!-- end custom-control -->
                                     <a href="recover.html" class="btn-text">Forgot my password?</a>
