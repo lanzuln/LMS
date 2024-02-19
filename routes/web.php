@@ -14,7 +14,7 @@ Route::get('/', [frontendIndexController::class, 'index']);
 // });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('frontend.dashboard.pages.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
