@@ -56,6 +56,8 @@
 
         @yield('body')
 
+
+
     </section><!-- end dashboard-area -->
     <!-- ================================
     END DASHBOARD AREA

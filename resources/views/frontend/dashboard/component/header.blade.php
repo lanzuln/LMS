@@ -199,23 +199,28 @@
                                             </li>
                                         </ul>
                                     </div><!-- end shop-cart -->
+
+                                    @php
+    $id= Auth::user()->id;
+    $profile_data= App\Models\User::find($id);
+@endphp
                                     <div class="shop-cart user-profile-cart">
                                         <ul>
                                             <li>
                                                 <div class="shop-cart-btn">
                                                     <div class="avatar-xs">
-                                                        <img class="rounded-full img-fluid" src="{{asset('frontend/assets/images/small-avatar-1.jpg')}}" alt="Avatar image">
+                                                        <img class="rounded-full img-fluid" src="{{asset($profile_data->photo?? "no_image.png")}}" alt="Avatar image">
                                                     </div>
                                                     <span class="dot-status bg-1"></span>
                                                 </div>
                                                 <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
                                                     <li class="menu-heading-block d-flex align-items-center">
                                                         <a href="teacher-detail.html" class="avatar-sm flex-shrink-0 d-block">
-                                                            <img class="rounded-full img-fluid" src="{{asset('frontend/assets/images/small-avatar-1.jpg')}}" alt="Avatar image">
+                                                            <img class="rounded-full img-fluid" src="{{asset($profile_data->photo?? "no_image.png")}}" alt="Avatar image">
                                                         </a>
                                                         <div class="ml-2">
-                                                            <h4><a href="teacher-detail.html" class="text-black">Alex Smith</a></h4>
-                                                            <span class="d-block fs-14 lh-20">alexsmith@example.com</span>
+                                                            <h4><a href="teacher-detail.html" class="text-black">{{$profile_data->name}}</a></h4>
+                                                            <span class="d-block fs-14 lh-20">{{$profile_data->email}}</span>
                                                         </div>
                                                     </li>
                                                     <li>
