@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('frontend.pages.dashboard.register');
     }
 
     /**
@@ -41,6 +41,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        toastr()->success('Registration successfull');
 
         event(new Registered($user));
 
