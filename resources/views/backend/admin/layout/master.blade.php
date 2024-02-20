@@ -18,6 +18,7 @@
     <!-- Bootstrap CSS -->
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/bootstrap-extended.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/icons.css') }}" rel="stylesheet">
@@ -37,12 +38,16 @@
         <!--end sidebar wrapper -->
 
         <!--start header -->
-    @include('backend.admin.components.header')
+        @include('backend.admin.components.header')
         <!--end header -->
 
         <!--start page wrapper -->
         <div class="page-wrapper">
-            @yield('body')
+            <div class="page-content">
+
+                @yield('body')
+
+            </div>
         </div>
         <!--end page wrapper -->
         <!--start overlay-->
@@ -250,10 +255,18 @@
     <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ asset('backend/assets/plugins/chartjs/js/chart.js') }}"></script>
+    <script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/index.js') }}"></script>
     <!--app JS-->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
     <script>
+        // dataTable
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+
+
         new PerfectScrollbar(".app-container")
     </script>
 </body>

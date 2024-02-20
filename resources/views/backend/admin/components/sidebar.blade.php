@@ -21,12 +21,19 @@
         </li>
 
         <li class="menu-label">UI Elements</li>
+
         <li>
-            <a href="widgets.html">
-                <div class="parent-icon"><i class='bx bx-cookie'></i>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-cart"></i>
                 </div>
-                <div class="menu-title">Widgets</div>
+                <div class="menu-title">Category Manage</div>
             </a>
+            <ul class="mm-collapse">
+                <li> <a href="{{route('category.index')}}"><i class="bx bx-radio-circle"></i>All Category</a>
+                </li>
+                <li> <a href="ecommerce-products.html"><i class="bx bx-radio-circle"></i>New Category</a>
+                </li>
+            </ul>
         </li>
 
     </ul>
