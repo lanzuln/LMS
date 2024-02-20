@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Aduca - Education HTML Template</title>
+    <title>User Dashboard</title>
 
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -53,15 +53,22 @@
 ================================= -->
     <section class="dashboard-area">
         @include('frontend.dashboard.component.sidebar')
+        <div class="dashboard-content-wrap">
+            <div class="dashboard-menu-toggler btn theme-btn theme-btn-sm lh-28 theme-btn-transparent mb-4 ml-3">
+                <i class="la la-bars mr-1"></i> Dashboard Nav
+            </div>
+            <div class="container-fluid">
+                @include('frontend.dashboard.component.user_breadcum')
+                <div class="section-block mb-5"></div>
 
-        @yield('body')
+
+                @yield('body')
 
 
-
-    </section><!-- end dashboard-area -->
-    <!-- ================================
-    END DASHBOARD AREA
-================================= -->
+                @include('frontend.dashboard.component.footer')
+            </div><!-- end container-fluid -->
+        </div><!-- end dashboard-content-wrap -->
+    </section>
 
     <!-- start scroll top -->
     <div id="scroll-top">
