@@ -42,7 +42,7 @@
                     <div class="input-box col-lg-6">
                         <label class="label-text">User Name</label>
                         <div class="form-group">
-                            <input disabled class="form-control form--control" type="text" name="username"
+                            <input class="form-control form--control" type="text" name="username"
                                 value="{{ $profileData->username ?? ' ' }}">
                             <span class="la la-user input-icon"></span>
                         </div>

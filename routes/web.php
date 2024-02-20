@@ -14,6 +14,9 @@ Route::middleware(['auth', 'roles:user'])->group(function () {
 
     Route::get('/user/profile', [UserController::class, 'edit'])->name('profile.edit');
     Route::post('/user/profile/update', [UserController::class, 'update'])->name('profile.update');
+    Route::get('/user/change/password', [UserController::class, 'changePassword'])->name('password.change');
+    Route::post('/user/update/password', [UserController::class, 'updatePassword'])->name('update.password');
+
 });
 
 require __DIR__.'/auth.php';

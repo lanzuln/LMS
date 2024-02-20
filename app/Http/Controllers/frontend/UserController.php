@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -52,5 +53,27 @@ class UserController extends Controller
         toastr()->success('Profile update without images');
         return redirect()->back();
 
+    }
+
+    public function changePassword(){
+        return view('frontend.dashboard.pages.userPasswordChange');
+    }
+
+    public function updatePassword(request $request)
+    {
+        request()->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        if (!Hash::check($request->old_password, Auth::user()->password)) {
+            toastr()->error('Old Password does not match');
+            return redirect()->back();
+        }
+        User::whereId(Auth::user()->id)->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+        toastr()->success('Password changes Successfully');
+        return redirect()->back();
     }
 }
