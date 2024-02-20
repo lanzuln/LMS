@@ -31,7 +31,7 @@
             <ul class="mm-collapse">
                 <li> <a href="{{route('category.index')}}"><i class="bx bx-radio-circle"></i>All Category</a>
                 </li>
-                <li> <a href="ecommerce-products.html"><i class="bx bx-radio-circle"></i>New Category</a>
+                <li> <a href="{{route('category.create')}}"><i class="bx bx-radio-circle"></i>New Category</a>
                 </li>
             </ul>
         </li>

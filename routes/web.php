@@ -37,6 +37,8 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/category', 'index')->name('category.index');
+        Route::get('/category/create', 'create')->name('category.create');
+        Route::post('/category/store', 'store')->name('category.store');
     });
 
 
