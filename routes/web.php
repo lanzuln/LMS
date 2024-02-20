@@ -13,6 +13,7 @@ Route::middleware(['auth', 'roles:user'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 
     Route::get('/user/profile', [UserController::class, 'edit'])->name('profile.edit');
+    Route::post('/user/profile/update', [UserController::class, 'update'])->name('profile.update');
 });
 
 require __DIR__.'/auth.php';
