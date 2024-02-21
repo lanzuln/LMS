@@ -85,9 +85,11 @@ class CategoryController extends Controller
 
     public function delete($id) {
         $category = Category::find($id);
-        $old_image = $category->category_image;
+        $old_image = $category->image;
 
-        unlink($old_image);
+        if (file_exists($old_image)) {
+            unlink($old_image);
+        }
         Category::where('id', $id)->delete();
         toastr()->success('Category deleted');
         return back();
