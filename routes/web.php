@@ -39,6 +39,9 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
         Route::get('/category', 'index')->name('category.index');
         Route::get('/category/create', 'create')->name('category.create');
         Route::post('/category/store', 'store')->name('category.store');
+        Route::get('/category/edit/{id}', 'edit')->name('category.edit');
+        Route::post('/category/update', 'update')->name('category.update');
+        Route::post('/category/delete/{id}', 'delete')->name('category.delete');
     });
 
 

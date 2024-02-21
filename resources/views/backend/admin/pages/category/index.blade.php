@@ -15,9 +15,6 @@
             <a href="{{ route('category.create') }}"><button type="button" class="btn btn-primary">Create New</button></a>
         </div>
     </div>
-
-
-
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
@@ -36,11 +33,11 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td><img src="{{ asset($item->image ?? 'no_image.png') }}" alt=""
-                                            style="widows: 150px;height:100px;border-radius:5px;object-fit:cover"></td>
+                                            style="width: 100px; height:70px; border-radius:5px; object-fit:cover"></td>
                                     <td>{{ $item->name }}</td>
                                     <td>
-                                        <a href="" class="btn btn-info">Edit</a>
-                                        <a href="" class="btn btn-danger">Delete</a>
+                                        <a href="{{route('category.edit', $item->id)}}" class="btn btn-info">Edit</a>
+                                        <a href="{{route('category.delete', $item->id)}}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
